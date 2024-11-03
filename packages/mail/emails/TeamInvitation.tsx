@@ -1,7 +1,4 @@
-import { Heading, Link, Text } from "@react-email/components";
-import { createTranslator } from "use-intl/core";
 import type { BaseMailProps } from "../types";
-import PrimaryButton from "./components/PrimaryButton";
 import Wrapper from "./components/Wrapper";
 
 export function TeamInvitation({
@@ -13,16 +10,10 @@ export function TeamInvitation({
 	url: string;
 	teamName: string;
 } & BaseMailProps): JSX.Element {
-	const t = createTranslator({
-		locale,
-		messages: translations,
-		namespace: "mail",
-	});
-
 	return (
 		<Wrapper>
-			<Heading className="text-xl">
-				{t.markup("teamInvitation.headline", {
+			{/* <Heading className="text-xl"> */}
+			{/* {t.markup("teamInvitation.headline", {
 					teamName,
 					strong: (chunks) => `<strong>${chunks}</strong>`,
 				})}
@@ -34,7 +25,7 @@ export function TeamInvitation({
 			<Text className="mt-4 text-muted-foreground text-sm">
 				{t("common.openLinkInBrowser")}
 				<Link href={url}>{url}</Link>
-			</Text>
+			</Text> */}
 		</Wrapper>
 	);
 }
