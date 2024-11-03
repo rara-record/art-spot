@@ -21,8 +21,8 @@ export const config = {
 		redirectAfterLogout: "/",
 	},
 	mailing: {
-		provider: "plunk",
-		from: "hello@your-domain.com",
+		provider: "nodemailer",
+		from: "a52447879@gmail.com",
 	},
 } as const satisfies Config;
 

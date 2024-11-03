@@ -102,7 +102,8 @@ export function createOauthCallbackHandler(
 			if (existingUser) {
 				if (
 					!existingUser.oauthAccounts.some(
-						(account) => account.providerId === providerId,
+						(account: { providerId: string }) =>
+							account.providerId === providerId,
 					)
 				) {
 					await db.userOauthAccount.create({
