@@ -9,9 +9,6 @@ updates:
       trpc:
         patterns:
           - "@trpc/*"
-      content-collections:
-        patterns:
-          - "@content-collections/*"
       prisma:
         patterns:
           - "@prisma/*"

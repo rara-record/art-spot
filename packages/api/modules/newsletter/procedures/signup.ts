@@ -1,4 +1,3 @@
-import { sendEmail } from "mail";
 import { z } from "zod";
 import { publicProcedure } from "../../../trpc/base";
 
@@ -8,11 +7,4 @@ export const signup = publicProcedure
 			email: z.string(),
 		}),
 	)
-	.mutation(async ({ input: { email }, ctx: { locale } }) => {
-		await sendEmail({
-			to: email,
-			locale,
-			templateId: "newsletterSignup",
-			context: {},
-		});
-	});
+	.mutation(async ({ input: { email }, ctx: { locale } }) => {});
