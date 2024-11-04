@@ -1,4 +1,3 @@
-const { withContentCollections } = require("@content-collections/next");
 const nextIntlPlugin = require("next-intl/plugin");
 
 const withNextIntl = nextIntlPlugin("./i18n.ts");
@@ -48,4 +47,4 @@ const nextConfig = {
 	},
 };
 
-module.exports = withContentCollections(withNextIntl(nextConfig));
+module.exports = withNextIntl(nextConfig);
