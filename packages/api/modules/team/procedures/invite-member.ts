@@ -1,8 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { db } from "database";
 import { logger } from "logs";
-import { sendEmail } from "mail";
-import { getBaseUrl } from "utils";
 import { z } from "zod";
 import { protectedProcedure } from "../../../trpc/base";
 
@@ -37,16 +35,6 @@ export const inviteMember = protectedProcedure
 								name: true,
 							},
 						},
-					},
-				});
-
-				await sendEmail({
-					templateId: "teamInvitation",
-					to: email,
-					locale,
-					context: {
-						url: `${getBaseUrl()}/team/invitation?code=${invitation.id}`,
-						teamName: invitation.team.name,
 					},
 				});
 			} catch (e) {

@@ -20,10 +20,6 @@ export const config = {
 	auth: {
 		redirectAfterLogout: "/",
 	},
-	mailing: {
-		provider: "plunk",
-		from: "hello@your-domain.com",
-	},
 } as const satisfies Config;
 
 export type Config = {
@@ -35,16 +31,6 @@ export type Config = {
 	};
 	teams: { avatarColors: string[] };
 	auth: { redirectAfterLogout: string };
-	mailing: {
-		provider:
-			| "custom"
-			| "console"
-			| "plunk"
-			| "resend"
-			| "postmark"
-			| "nodemailer";
-		from: string;
-	};
 };
 
 export type Locale = keyof (typeof config)["i18n"]["locales"];

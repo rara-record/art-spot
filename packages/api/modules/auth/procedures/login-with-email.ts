@@ -2,7 +2,7 @@ import { TRPCError } from "@trpc/server";
 import { generateOneTimePassword, generateVerificationToken } from "auth";
 import { db } from "database";
 import { logger } from "logs";
-import { sendEmail } from "mail";
+
 import { z } from "zod";
 import { publicProcedure } from "../../../trpc/base";
 
@@ -68,17 +68,6 @@ export const loginWithEmail = publicProcedure
 
 			const url = new URL(callbackUrl);
 			url.searchParams.set("token", token);
-
-			await sendEmail({
-				templateId: "magicLink",
-				to: email,
-				locale,
-				context: {
-					url: url.toString(),
-					name: user.name ?? user.email,
-					otp,
-				},
-			});
 		} catch (e) {
 			logger.error(e);
 

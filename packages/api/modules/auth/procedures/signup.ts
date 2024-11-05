@@ -4,7 +4,6 @@ import { hashPassword } from "auth/lib/hashing";
 import { passwordSchema } from "auth/lib/passwords";
 import { UserRoleSchema, db } from "database";
 import { logger } from "logs";
-import { sendEmail } from "mail";
 import { z } from "zod";
 import { publicProcedure } from "../../../trpc/base";
 
@@ -60,17 +59,6 @@ export const signup = publicProcedure
 
 				const url = new URL(callbackUrl);
 				url.searchParams.set("token", token);
-
-				await sendEmail({
-					templateId: "newUser",
-					to: email,
-					locale,
-					context: {
-						url: url.toString(),
-						otp,
-						name: user.name ?? user.email,
-					},
-				});
 			} catch (e) {
 				logger.error(e);
 

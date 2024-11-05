@@ -40,6 +40,18 @@ export const oAuthProviders: Record<
 			</svg>
 		),
 	},
+	kakao: {
+		name: "Kakao",
+		icon: ({ ...props }: IconProps) => (
+			<svg viewBox="0 0 24 24" {...props}>
+				<title>Kakao</title>
+				<path
+					d="M12 3C6.48 3 2 6.48 2 11c0 2.95 1.94 5.52 4.85 6.81l-1.24 4.47c-.11.36.23.69.58.54l5.27-3.35c.17.02.34.03.51.03 5.52 0 10-3.48 10-8S17.52 3 12 3"
+					fill="currentColor"
+				/>
+			</svg>
+		),
+	},
 };
 
 export function SocialSigninButton({

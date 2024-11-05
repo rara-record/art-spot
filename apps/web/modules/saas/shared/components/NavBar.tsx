@@ -17,7 +17,6 @@ import {
 import { useTranslations } from "next-intl";
 import type { PropsWithChildren } from "react";
 import { useCallback } from "react";
-import { TeamSelect } from "./TeamSelect";
 
 type User = ApiOutput["auth"]["user"];
 
@@ -75,8 +74,6 @@ export function NavBar({
 						<span className="hidden opacity-30 md:block">
 							<ChevronRightIcon className="size-4" />
 						</span>
-
-						<TeamSelect teams={teams} />
 					</div>
 
 					<div className="mr-0 ml-auto flex items-center justify-end gap-4">
