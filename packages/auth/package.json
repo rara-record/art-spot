@@ -5,7 +5,7 @@
 		"database": "workspace:*",
 		"i18n": "workspace:*",
 		"logs": "workspace:*",
-		"lucia": "^3.2.1",
+		"lucia": "^3.2.2",
 		"next": "14.2.15",
 		"oslo": "^1.2.1",
 		"utils": "workspace:*",
