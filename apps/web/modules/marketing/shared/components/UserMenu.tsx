@@ -29,7 +29,6 @@ import {
 	MoonIcon,
 	SettingsIcon,
 	SunIcon,
-	UserRoundXIcon,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
@@ -175,23 +174,6 @@ export function UserMenu() {
 						{t("dashboard.userMenu.documentation")}
 					</a>
 				</DropdownMenuItem>
-
-				{user.impersonatedBy && (
-					<DropdownMenuItem
-						onClick={async () => {
-							const { dismiss } = toast({
-								variant: "loading",
-								title: t("admin.users.impersonation.unimpersonating"),
-							});
-							await unimpersonateMutation.mutateAsync();
-							dismiss();
-							window.location.reload();
-						}}
-					>
-						<UserRoundXIcon className="mr-2 size-4" />
-						{t("dashboard.userMenu.unimpersonate")}
-					</DropdownMenuItem>
-				)}
 
 				<DropdownMenuItem onClick={logout}>
 					<LogOutIcon className="mr-2 size-4" />
