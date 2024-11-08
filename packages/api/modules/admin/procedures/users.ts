@@ -1,4 +1,4 @@
-import { TeamMembershipSchema, TeamSchema, UserSchema, db } from "database";
+import { UserSchema, db } from "database";
 import { z } from "zod";
 import { adminProcedure } from "../../../trpc/base";
 import { getUserAvatarUrl } from "../../auth/lib/avatar-url";
@@ -21,14 +21,6 @@ export const users = adminProcedure
 					role: true,
 					avatarUrl: true,
 					name: true,
-				}).extend({
-					memberships: z
-						.array(
-							TeamMembershipSchema.extend({
-								team: TeamSchema,
-							}),
-						)
-						.nullable(),
 				}),
 			),
 			total: z.number(),
@@ -63,11 +55,6 @@ export const users = adminProcedure
 				role: true,
 				id: true,
 				name: true,
-				memberships: {
-					include: {
-						team: true,
-					},
-				},
 			},
 			take: limit,
 			skip: offset,

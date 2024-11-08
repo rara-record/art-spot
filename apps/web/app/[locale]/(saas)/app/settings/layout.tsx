@@ -6,14 +6,10 @@ import { getTranslations } from "next-intl/server";
 import type { PropsWithChildren } from "react";
 export default async function SettingsLayout({ children }: PropsWithChildren) {
 	const t = await getTranslations();
-	const { user, team } = await currentUser();
+	const { user } = await currentUser();
 
 	if (!user) {
 		return redirect("/auth/login");
-	}
-
-	if (!team) {
-		return null;
 	}
 
 	const menuItems = [

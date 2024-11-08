@@ -5,7 +5,6 @@ import { usePathname } from "@i18n";
 import { UserMenu } from "@marketing/shared/components/UserMenu";
 import { Logo } from "@shared/components/Logo";
 import type { ApiOutput } from "api/trpc/router";
-import type { Team } from "database";
 import { UserRoleSchema } from "database";
 import {
 	ChevronRightIcon,
@@ -20,10 +19,7 @@ import { useCallback } from "react";
 
 type User = ApiOutput["auth"]["user"];
 
-export function NavBar({
-	teams,
-	user,
-}: PropsWithChildren<{ teams: Team[]; user: User }>) {
+export function NavBar({ user }: PropsWithChildren<{ user: User }>) {
 	const t = useTranslations();
 	const pathname = usePathname();
 	const isAdmin = user?.role === UserRoleSchema.Values.ADMIN;

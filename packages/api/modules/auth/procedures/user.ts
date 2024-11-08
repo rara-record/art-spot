@@ -1,4 +1,4 @@
-import { TeamMembershipSchema, TeamSchema, UserSchema, db } from "database";
+import { UserSchema, db } from "database";
 import { z } from "zod";
 import { publicProcedure } from "../../../trpc/base";
 import { getUserAvatarUrl } from "../lib/avatar-url";
@@ -13,23 +13,9 @@ export const user = publicProcedure
 			avatarUrl: true,
 			name: true,
 			onboardingComplete: true,
-		})
-			.extend({
-				teamMemberships: z
-					.array(
-						TeamMembershipSchema.extend({
-							team: TeamSchema,
-						}),
-					)
-					.nullable(),
-				impersonatedBy: UserSchema.pick({
-					id: true,
-					name: true,
-				}).nullish(),
-			})
-			.nullable(),
+		}).nullable(),
 	)
-	.query(async ({ ctx: { user, session, teamMemberships } }) => {
+	.query(async ({ ctx: { user, session } }) => {
 		if (!user) {
 			return null;
 		}
@@ -49,7 +35,6 @@ export const user = publicProcedure
 		return {
 			...user,
 			avatarUrl: await getUserAvatarUrl(user.avatarUrl),
-			teamMemberships,
 			impersonatedBy,
 		};
 	});

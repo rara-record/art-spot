@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function Layout({ children }: PropsWithChildren) {
-	const { user, teamMembership } = await currentUser();
+	const { user } = await currentUser();
 
 	if (!user) {
 		return redirect("/auth/login");
@@ -19,20 +19,9 @@ export default async function Layout({ children }: PropsWithChildren) {
 		return redirect("/onboarding");
 	}
 
-	if (!user.teamMemberships?.length) {
-		return redirect("/onboarding");
-	}
-
-	if (!teamMembership) {
-		return redirect("/");
-	}
-
 	return (
-		<UserContextProvider initialUser={user} teamMembership={teamMembership}>
-			<NavBar
-				user={user}
-				teams={user.teamMemberships?.map((membership) => membership.team) ?? []}
-			/>
+		<UserContextProvider initialUser={user}>
+			<NavBar user={user} />
 			<main className="min-h-[calc(100vh-12rem)]">{children}</main>
 			<Footer />
 		</UserContextProvider>
