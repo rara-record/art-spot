@@ -17,16 +17,6 @@ export const deleteUser = adminProcedure
 					id: id,
 				},
 			});
-
-			await db.team.deleteMany({
-				where: {
-					memberships: {
-						every: {
-							userId: id,
-						},
-					},
-				},
-			});
 		} catch (e) {
 			logger.error(e);
 

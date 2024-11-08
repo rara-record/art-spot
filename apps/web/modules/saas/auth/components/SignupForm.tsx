@@ -30,7 +30,6 @@ import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { SocialSigninButton, oAuthProviders } from "./SocialSigninButton";
-import { TeamInvitationInfo } from "./TeamInvitationInfo";
 
 const formSchema = z.object({
 	email: z.string().email(),
@@ -60,9 +59,7 @@ export function SignupForm() {
 	const signupMutation = apiClient.auth.signup.useMutation();
 
 	const invitationCode = searchParams.get("invitationCode");
-	const redirectTo = invitationCode
-		? `/team/invitation?code=${invitationCode}`
-		: searchParams.get("redirectTo") ?? "/app";
+	const redirectTo = "/app";
 	const email = searchParams.get("email");
 
 	useEffect(() => {
@@ -94,7 +91,7 @@ export function SignupForm() {
 			router.replace(`/auth/otp?${redirectSearchParams.toString()}`);
 		} catch (e) {
 			setApiErrorsToForm(e, form, {
-				defaultError: t("auth.signup.hints.signupFailed"),
+				defaultError: "auth signup Failed",
 			});
 		}
 	};
@@ -107,8 +104,6 @@ export function SignupForm() {
 			<p className="mt-2 mb-6 text-muted-foreground">
 				{t("auth.signup.message")}
 			</p>
-
-			{invitationCode && <TeamInvitationInfo className="mb-6" />}
 
 			<div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
 				{Object.keys(oAuthProviders).map((providerId) => (

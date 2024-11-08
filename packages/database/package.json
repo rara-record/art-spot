@@ -16,6 +16,7 @@
 	"scripts": {
 		"db:generate": "prisma generate",
 		"db:push": "dotenv -c -e ../../.env -- prisma db push --skip-generate",
+		"db:migrate:dev": "dotenv -c -e ../../.env -- prisma migrate dev",
 		"db:studio": "dotenv -c -e ../../.env -- prisma studio",
 		"type-check": "tsc --noEmit"
 	},

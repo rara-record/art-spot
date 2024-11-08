@@ -31,7 +31,6 @@ import { z } from "zod";
 import { useUser } from "../hooks/use-user";
 import SigninModeSwitch from "./SigninModeSwitch";
 import { SocialSigninButton, oAuthProviders } from "./SocialSigninButton";
-import { TeamInvitationInfo } from "./TeamInvitationInfo";
 
 const formSchema = z.object({
 	email: z.string().email(),
@@ -60,9 +59,7 @@ export function LoginForm() {
 	const form = useForm<FormValues>({ resolver: zodResolver(formSchema) });
 
 	const invitationCode = searchParams.get("invitationCode");
-	const redirectTo = invitationCode
-		? `/team/invitation?code=${invitationCode}`
-		: searchParams.get("redirectTo") ?? "/app";
+	const redirectTo = "/app";
 	const email = searchParams.get("email");
 
 	useEffect(() => {
@@ -117,7 +114,7 @@ export function LoginForm() {
 			}
 		} catch (e) {
 			setApiErrorsToForm(e, form, {
-				defaultError: t("auth.login.hints.invalidCredentials"),
+				defaultError: "login error",
 			});
 		}
 	};
@@ -130,8 +127,6 @@ export function LoginForm() {
 			<p className="mt-4 mb-6 text-muted-foreground">
 				{t("auth.login.subtitle")}
 			</p>
-
-			{invitationCode && <TeamInvitationInfo className="mb-6" />}
 
 			<div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2">
 				{Object.keys(oAuthProviders).map((providerId) => (

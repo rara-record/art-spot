@@ -23,7 +23,6 @@ import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useUser } from "../hooks/use-user";
-import { TeamInvitationInfo } from "./TeamInvitationInfo";
 
 const formSchema = z.object({
 	code: z.string().min(6).max(6),
@@ -44,14 +43,11 @@ export function OtpForm() {
 		}),
 	});
 
-	const invitationCode = searchParams.get("invitationCode");
 	const identifier = searchParams.get("identifier") ?? "";
 	const type: UserOneTimePasswordTypeType = searchParams.get(
 		"type",
 	) as UserOneTimePasswordTypeType;
-	const redirectTo = invitationCode
-		? `/team/invitation?code=${invitationCode}`
-		: searchParams.get("redirectTo") ?? "/app";
+	const redirectTo = "/app";
 
 	const verifyOtpMutation = apiClient.auth.verifyOtp.useMutation();
 
@@ -76,7 +72,7 @@ export function OtpForm() {
 			handleRedirect();
 		} catch (e) {
 			setApiErrorsToForm(e, form, {
-				defaultError: t("auth.verifyOtp.hints.verificationFailed"),
+				defaultError: "auth verificationFailed",
 			});
 		}
 	};
@@ -89,8 +85,6 @@ export function OtpForm() {
 			<p className="mt-2 mb-6 text-muted-foreground">
 				{t("auth.verifyOtp.message")}
 			</p>
-
-			{invitationCode && <TeamInvitationInfo className="mb-6" />}
 
 			<Form {...form}>
 				<form

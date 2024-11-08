@@ -14,9 +14,6 @@ export const config = {
 		defaultCurrency: "USD",
 		cookieName: "NEXT_LOCALE",
 	},
-	teams: {
-		avatarColors: ["#4e6df5", "#e5a158", "#9dbee5", "#ced3d9"],
-	},
 	auth: {
 		redirectAfterLogout: "/",
 	},
@@ -29,7 +26,6 @@ export type Config = {
 		defaultCurrency: string;
 		cookieName: string;
 	};
-	teams: { avatarColors: string[] };
 	auth: { redirectAfterLogout: string };
 };
 

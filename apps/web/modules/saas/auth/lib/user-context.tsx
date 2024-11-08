@@ -8,9 +8,6 @@ import type { PropsWithChildren } from "react";
 import { createContext, useEffect, useState } from "react";
 
 type User = ApiOutput["auth"]["user"];
-type TeamMembership = NonNullable<
-	NonNullable<ApiOutput["auth"]["user"]>["teamMemberships"]
->[number];
 
 type UserContext = {
 	user: User;
@@ -18,7 +15,6 @@ type UserContext = {
 	updateUser: (info: Partial<User>) => void;
 	logout: () => Promise<void>;
 	loaded: boolean;
-	teamMembership: TeamMembership | null;
 };
 
 const authBroadcastChannel = new BroadcastChannel("auth");
@@ -35,16 +31,13 @@ export const userContext = createContext<UserContext>({
 	},
 	logout: () => Promise.resolve(),
 	loaded: false,
-	teamMembership: null,
 });
 
 export function UserContextProvider({
 	children,
 	initialUser,
-	teamMembership,
 }: PropsWithChildren<{
 	initialUser: User;
-	teamMembership?: TeamMembership;
 }>) {
 	const [loaded, setLoaded] = useState(!!initialUser);
 	const [user, setUser] = useState<User>(initialUser);
@@ -126,7 +119,6 @@ export function UserContextProvider({
 				logout,
 				loaded,
 				updateUser,
-				teamMembership: teamMembership ?? null,
 			}}
 		>
 			{children}
