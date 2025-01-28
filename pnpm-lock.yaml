@@ -199,8 +199,8 @@ importers:
         specifier: ^3.0.4
         version: 3.0.6
       '@types/node':
-        specifier: 22.7.5
-        version: 22.7.5
+        specifier: 22.12.0
+        version: 22.12.0
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
@@ -345,8 +345,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.12.0
+        version: 22.12.0
       '@types/react':
         specifier: 18.3.11
         version: 18.3.11
@@ -367,8 +367,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: 22.7.5
-        version: 22.7.5
+        specifier: 22.12.0
+        version: 22.12.0
       dotenv-cli:
         specifier: ^7.4.2
         version: 7.4.2
@@ -392,8 +392,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.12.0
+        version: 22.12.0
       tsconfig:
         specifier: workspace:*
         version: link:../../tooling/typescript
@@ -408,8 +408,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.12.0
+        version: 22.12.0
       tsconfig:
         specifier: workspace:*
         version: link:../../tooling/typescript
@@ -430,8 +430,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.12.0
+        version: 22.12.0
       tsconfig:
         specifier: workspace:*
         version: link:../../tooling/typescript
@@ -442,8 +442,8 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.12.0
+        version: 22.12.0
       tsconfig:
         specifier: workspace:*
         version: link:../../tooling/typescript
@@ -2114,11 +2114,11 @@ packages:
   '@types/node-fetch@2.6.11':
     resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
 
-  '@types/node@18.19.41':
-    resolution: {integrity: sha512-LX84pRJ+evD2e2nrgYCHObGWkiQJ1mL+meAgbvnwk/US6vmMY7S2ygBTGV2Jw91s9vUsLSXeDEkUHZIJGLrhsg==}
+  '@types/node@18.19.74':
+    resolution: {integrity: sha512-HMwEkkifei3L605gFdV+/UwtpxP6JSzM+xFk2Ia6DNFSwSVBRh9qp5Tgf4lNFOMfPVuU0WnkcWpXZpgn5ufO4A==}
 
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
+  '@types/node@22.12.0':
+    resolution: {integrity: sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==}
 
   '@types/nprogress@0.2.3':
     resolution: {integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==}
@@ -3148,9 +3148,11 @@ packages:
 
   oslo@1.2.0:
     resolution: {integrity: sha512-OoFX6rDsNcOQVAD2gQD/z03u4vEjWZLzJtwkmgfRF+KpQUXwdgEXErD7zNhyowmHwHefP+PM9Pw13pgpHMRlzw==}
+    deprecated: Package is no longer supported. Please see https://oslojs.dev for the successor project.
 
   oslo@1.2.1:
     resolution: {integrity: sha512-HfIhB5ruTdQv0XX2XlncWQiJ5SIHZ7NHZhVyHth0CSZ/xzge00etRyYy/3wp/Dsu+PkxMC+6+B2lS/GcKoewkA==}
+    deprecated: Package is no longer supported. Please see https://oslojs.dev for the successor project.
 
   ospath@1.2.2:
     resolution: {integrity: sha512-o6E5qJV5zkAbIDNhGSIlyOhScKXgQrSRMilfph0clDfM0nEnBOlKlH4sWDmG95BW/CvwNz0vmm7dJVtU2KlMiA==}
@@ -3671,8 +3673,8 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
-  undici-types@6.19.6:
-    resolution: {integrity: sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==}
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
@@ -5781,16 +5783,16 @@ snapshots:
 
   '@types/node-fetch@2.6.11':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.12.0
       form-data: 4.0.0
 
-  '@types/node@18.19.41':
+  '@types/node@18.19.74':
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@22.7.5':
+  '@types/node@22.12.0':
     dependencies:
-      undici-types: 6.19.6
+      undici-types: 6.20.0
 
   '@types/nprogress@0.2.3': {}
 
@@ -5817,7 +5819,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.12.0
     optional: true
 
   '@ungap/structured-clone@1.2.0': {}
@@ -6796,7 +6798,7 @@ snapshots:
 
   openai@4.67.3(encoding@0.1.13)(zod@3.23.8):
     dependencies:
-      '@types/node': 18.19.41
+      '@types/node': 18.19.74
       '@types/node-fetch': 2.6.11
       abort-controller: 3.0.0
       agentkeepalive: 4.5.0
@@ -7209,7 +7211,7 @@ snapshots:
 
   stripe@17.2.0:
     dependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.12.0
       qs: 6.13.0
 
   strnum@1.0.5: {}
@@ -7352,7 +7354,7 @@ snapshots:
 
   undici-types@5.26.5: {}
 
-  undici-types@6.19.6: {}
+  undici-types@6.20.0: {}
 
   unified@11.0.5:
     dependencies:
